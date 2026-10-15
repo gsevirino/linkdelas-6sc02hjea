@@ -1,0 +1,456 @@
+{
+  "generatedAt": "2026-10-15T00:07:39.429Z",
+  "collections": [
+    {
+      "name": "users",
+      "type": "auth",
+      "apiRules": {
+        "list": "",
+        "view": "",
+        "create": "",
+        "update": "id = @request.auth.id",
+        "delete": "id = @request.auth.id"
+      },
+      "fields": [
+        {
+          "name": "name",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "avatar",
+          "type": "file",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        },
+        {
+          "name": "role",
+          "type": "select",
+          "required": false,
+          "system": false,
+          "selectValues": ["cliente", "prestadora"]
+        },
+        {
+          "name": "phone",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "city",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "state",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "bio",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "status",
+          "type": "select",
+          "required": false,
+          "system": false,
+          "selectValues": ["pending", "approved", "rejected"]
+        },
+        {
+          "name": "plan",
+          "type": "select",
+          "required": false,
+          "system": false,
+          "selectValues": ["essencial", "profissional", "destaque"]
+        },
+        {
+          "name": "categories",
+          "type": "relation",
+          "required": false,
+          "system": false,
+          "collectionRef": "categories"
+        }
+      ],
+      "indexes": [
+        "CREATE UNIQUE INDEX `idx_tokenKey__pb_users_auth_` ON `users` (`tokenKey`)",
+        "CREATE UNIQUE INDEX `idx_email__pb_users_auth_` ON `users` (`email`) WHERE `email` != ''"
+      ]
+    },
+    {
+      "name": "categories",
+      "type": "base",
+      "apiRules": {
+        "list": "",
+        "view": "",
+        "create": "@request.auth.id != ''",
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
+      },
+      "fields": [
+        {
+          "name": "name",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "slug",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "icon",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": [
+        "CREATE INDEX idx_categories_name ON categories (name)",
+        "CREATE UNIQUE INDEX idx_categories_slug ON categories (slug)"
+      ]
+    },
+    {
+      "name": "providers",
+      "type": "base",
+      "apiRules": {
+        "list": "",
+        "view": "",
+        "create": "@request.auth.id != ''",
+        "update": "@request.auth.id != '' && user = @request.auth.id",
+        "delete": "@request.auth.id != '' && user = @request.auth.id"
+      },
+      "fields": [
+        {
+          "name": "user",
+          "type": "relation",
+          "required": true,
+          "system": false,
+          "collectionRef": "users"
+        },
+        {
+          "name": "categories",
+          "type": "relation",
+          "required": false,
+          "system": false,
+          "collectionRef": "categories"
+        },
+        {
+          "name": "service_description",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "city",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "state",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "locations_served",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "gallery",
+          "type": "file",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "rating_avg",
+          "type": "number",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "review_count",
+          "type": "number",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": [
+        "CREATE INDEX idx_providers_user ON providers (user)",
+        "CREATE INDEX idx_providers_city ON providers (city)",
+        "CREATE INDEX idx_providers_state ON providers (state)"
+      ]
+    },
+    {
+      "name": "quotes",
+      "type": "base",
+      "apiRules": {
+        "list": "@request.auth.id != '' && (client = @request.auth.id || provider = @request.auth.id)",
+        "view": "@request.auth.id != '' && (client = @request.auth.id || provider = @request.auth.id)",
+        "create": "@request.auth.id != ''",
+        "update": "@request.auth.id != '' && (client = @request.auth.id || provider = @request.auth.id)",
+        "delete": "@request.auth.id != '' && client = @request.auth.id"
+      },
+      "fields": [
+        {
+          "name": "client",
+          "type": "relation",
+          "required": true,
+          "system": false,
+          "collectionRef": "users"
+        },
+        {
+          "name": "provider",
+          "type": "relation",
+          "required": true,
+          "system": false,
+          "collectionRef": "users"
+        },
+        {
+          "name": "category",
+          "type": "relation",
+          "required": false,
+          "system": false,
+          "collectionRef": "categories"
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "attachment",
+          "type": "file",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "preferred_date",
+          "type": "date",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "status",
+          "type": "select",
+          "required": true,
+          "system": false,
+          "selectValues": ["pendente", "respondido", "aprovado", "recusado", "concluido"]
+        },
+        {
+          "name": "price",
+          "type": "number",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "response",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": [
+        "CREATE INDEX idx_quotes_client ON quotes (client)",
+        "CREATE INDEX idx_quotes_provider ON quotes (provider)",
+        "CREATE INDEX idx_quotes_status ON quotes (status)"
+      ]
+    },
+    {
+      "name": "reviews",
+      "type": "base",
+      "apiRules": {
+        "list": "",
+        "view": "",
+        "create": "@request.auth.id != '' && client = @request.auth.id",
+        "update": "@request.auth.id != '' && client = @request.auth.id",
+        "delete": "@request.auth.id != '' && client = @request.auth.id"
+      },
+      "fields": [
+        {
+          "name": "client",
+          "type": "relation",
+          "required": true,
+          "system": false,
+          "collectionRef": "users"
+        },
+        {
+          "name": "provider",
+          "type": "relation",
+          "required": true,
+          "system": false,
+          "collectionRef": "users"
+        },
+        {
+          "name": "quote",
+          "type": "relation",
+          "required": false,
+          "system": false,
+          "collectionRef": "quotes"
+        },
+        {
+          "name": "rating",
+          "type": "number",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "comment",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": [
+        "CREATE INDEX idx_reviews_provider ON reviews (provider)",
+        "CREATE INDEX idx_reviews_client ON reviews (client)"
+      ]
+    },
+    {
+      "name": "messages",
+      "type": "base",
+      "apiRules": {
+        "list": "@request.auth.id != '' && (sender = @request.auth.id || recipient = @request.auth.id)",
+        "view": "@request.auth.id != '' && (sender = @request.auth.id || recipient = @request.auth.id)",
+        "create": "@request.auth.id != '' && sender = @request.auth.id",
+        "update": "@request.auth.id != '' && (sender = @request.auth.id || recipient = @request.auth.id)",
+        "delete": "@request.auth.id != '' && sender = @request.auth.id"
+      },
+      "fields": [
+        {
+          "name": "quote",
+          "type": "relation",
+          "required": true,
+          "system": false,
+          "collectionRef": "quotes"
+        },
+        {
+          "name": "sender",
+          "type": "relation",
+          "required": true,
+          "system": false,
+          "collectionRef": "users"
+        },
+        {
+          "name": "recipient",
+          "type": "relation",
+          "required": true,
+          "system": false,
+          "collectionRef": "users"
+        },
+        {
+          "name": "content",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "read",
+          "type": "bool",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": [
+        "CREATE INDEX idx_messages_quote ON messages (quote)",
+        "CREATE INDEX idx_messages_sender ON messages (sender)",
+        "CREATE INDEX idx_messages_recipient ON messages (recipient)"
+      ]
+    }
+  ]
+}
