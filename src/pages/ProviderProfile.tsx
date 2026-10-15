@@ -377,7 +377,7 @@ export default function ProviderProfile() {
           <div className="p-4 rounded-2xl bg-[#F3EEF0] border border-[#E5DFE3] space-y-2 text-xs text-[#7E3F8F]">
             <div className="flex items-center gap-2 font-semibold">
               <ShieldCheck className="w-4 h-4 text-[#2E7D32]" />
-              <span>Compromisso Conexão Feminina</span>
+              <span>Compromisso LinkDelas</span>
             </div>
             <p className="text-[11px] text-[#6E6A73] leading-relaxed">
               Todas as prestadoras passam por validação de antecedentes e curadoria manual para

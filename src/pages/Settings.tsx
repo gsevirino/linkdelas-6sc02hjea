@@ -660,8 +660,8 @@ export default function SettingsPage() {
               Tem certeza que deseja excluir?
             </DialogTitle>
             <DialogDescription className="text-xs text-[#6E6A73] pt-1">
-              Todos os seus orçamentos, mensagens e histórico na Conexão Feminina serão apagados e
-              não poderão ser recuperados.
+              Todos os seus orçamentos, mensagens e histórico na LinkDelas serão apagados e não
+              poderão ser recuperados.
             </DialogDescription>
           </DialogHeader>
           <div className="flex justify-end gap-2 pt-4">

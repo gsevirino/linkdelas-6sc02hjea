@@ -61,7 +61,7 @@ export default function SignIn() {
             <Sparkles className="w-7 h-7 text-[#E8B4B8]" />
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#2D2A32]">
-            Conexão Feminina
+            LinkDelas
           </h1>
           <p className="text-sm text-[#6E6A73] mt-1">
             Rede confiável de serviços de mulheres para mulheres

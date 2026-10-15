@@ -150,7 +150,7 @@ export default function SignUp() {
             <Sparkles className="w-6 h-6 text-[#E8B4B8]" />
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#2D2A32]">
-            Faça parte da Conexão Feminina
+            Faça parte da LinkDelas
           </h1>
           <p className="text-xs sm:text-sm text-[#6E6A73] mt-1">
             {step === 1
@@ -480,8 +480,8 @@ export default function SignUp() {
                       className="mt-0.5 border-[#7E3F8F] data-[state=checked]:bg-[#7E3F8F]"
                     />
                     <span>
-                      <strong>Declaro que sou mulher</strong> e quero compor a rede Conexão Feminina
-                      de Serviços, respeitando o regulamento de segurança e qualidade do catálogo.
+                      <strong>Declaro que sou mulher</strong> e quero compor a rede LinkDelas,
+                      respeitando o regulamento de segurança e qualidade do catálogo.
                     </span>
                   </label>
                 </div>

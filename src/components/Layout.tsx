@@ -70,10 +70,10 @@ export default function Layout() {
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-lg leading-tight tracking-tight text-[#7E3F8F]">
-                Conexão Feminina
+                LinkDelas
               </span>
               <span className="text-[11px] font-medium text-[#6E6A73] uppercase tracking-wider">
-                de Serviços
+                Serviços de Mulheres
               </span>
             </div>
           </Link>
@@ -394,7 +394,7 @@ export default function Layout() {
                 <div className="w-8 h-8 rounded-lg bg-[#7E3F8F] flex items-center justify-center text-white">
                   <Sparkles className="w-4 h-4 text-[#E8B4B8]" />
                 </div>
-                <span className="font-bold text-base text-[#7E3F8F]">Conexão Feminina</span>
+                <span className="font-bold text-base text-[#7E3F8F]">LinkDelas</span>
               </div>
               <p className="text-xs text-[#6E6A73] leading-relaxed">
                 Marketplace seguro e acolhedor que conecta prestadoras de serviço mulheres a
@@ -470,10 +470,7 @@ export default function Layout() {
           </div>
 
           <div className="border-t border-[#E5DFE3] pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[#6E6A73] gap-4">
-            <p>
-              © {new Date().getFullYear()} Conexão Feminina de Serviços. Todos os direitos
-              reservados.
-            </p>
+            <p>© {new Date().getFullYear()} LinkDelas. Todos os direitos reservados.</p>
             <p className="flex items-center gap-1 text-[#6E6A73]">
               Feito com <Heart className="w-3.5 h-3.5 text-[#7E3F8F] fill-[#7E3F8F]" /> por e para
               mulheres.
