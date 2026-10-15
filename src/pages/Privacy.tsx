@@ -5,7 +5,6 @@ import {
   FileText,
   Database,
   Lock,
-  PhoneCall,
   Share2,
   Cookie,
   UserCheck2,
@@ -69,14 +68,14 @@ export default function Privacy() {
                 <div className="w-6 h-6 rounded-full bg-[#F3EEF0] text-[#7E3F8F] flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="w-3.5 h-3.5" />
                 </div>
-                <span>Nome, e-mail e CPF, no momento do cadastro;</span>
+                <span>Nome, e-mail e senha no momento do cadastro;</span>
               </li>
               <li className="flex items-start gap-3 text-base sm:text-lg text-[#2D2A32]/90 leading-relaxed font-normal">
                 <div className="w-6 h-6 rounded-full bg-[#F3EEF0] text-[#7E3F8F] flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="w-3.5 h-3.5" />
                 </div>
                 <span>
-                  Número de WhatsApp, cidade, bairro e foto de perfil, para prestadoras que anunciam
+                  Número de WhatsApp, cidade e foto de perfil, para prestadoras que anunciam
                   serviços;
                 </span>
               </li>
@@ -90,15 +89,7 @@ export default function Privacy() {
                 <div className="w-6 h-6 rounded-full bg-[#F3EEF0] text-[#7E3F8F] flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="w-3.5 h-3.5" />
                 </div>
-                <span>Prestadoras favoritas que você salva;</span>
-              </li>
-              <li className="flex items-start gap-3 text-base sm:text-lg text-[#2D2A32]/90 leading-relaxed font-normal">
-                <div className="w-6 h-6 rounded-full bg-[#F3EEF0] text-[#7E3F8F] flex items-center justify-center shrink-0 mt-0.5">
-                  <Check className="w-3.5 h-3.5" />
-                </div>
-                <span>
-                  Denúncias que você registra, incluindo categoria e descrição do problema;
-                </span>
+                <span>Orçamentos solicitados e mensagens trocadas na plataforma;</span>
               </li>
               <li className="flex items-start gap-3 text-base sm:text-lg text-[#2D2A32]/90 leading-relaxed font-normal">
                 <div className="w-6 h-6 rounded-full bg-[#F3EEF0] text-[#7E3F8F] flex items-center justify-center shrink-0 mt-0.5">
@@ -124,37 +115,33 @@ export default function Privacy() {
               </h2>
             </div>
             <p className="text-base sm:text-lg text-[#2D2A32]/90 leading-relaxed font-normal">
-              O CPF é usado exclusivamente para reforçar a segurança e a confiança entre as clientes
-              da comunidade (evitar contas falsas ou duplicadas) — ele nunca é exibido publicamente
-              no seu perfil. Justamente por esse motivo, o perfil completo de uma prestadora (foto,
-              nome e WhatsApp) só fica visível para clientes com cadastro completo (CPF confirmado);
-              quem visita o site sem conta vê apenas categoria, cidade e nota média, sem nenhuma
-              informação que identifique a prestadora. Os demais dados são usados para o
-              funcionamento das funcionalidades que você utiliza (busca, favoritos, avaliações,
-              denúncias).
+              Os dados são usados para o funcionamento das funcionalidades que você utiliza (busca
+              no catálogo, orçamentos, avaliações, mensagens). O perfil das prestadoras aprovadas é
+              exibido publicamente no catálogo (nome, categoria, cidade, descrição, foto e nota
+              média) — essa é a vitrine do serviço; já orçamentos e mensagens ficam visíveis apenas
+              para a cliente e a prestadora envolvidas em cada solicitação, e não são exibidos a
+              outras usuárias.
             </p>
           </CardContent>
         </Card>
 
-        {/* 3. Registro de segurança (contato via WhatsApp) */}
+        {/* 3. Segurança dos dados */}
         <Card className="rounded-3xl border-[#E5DFE3] bg-white shadow-xs overflow-hidden">
           <CardContent className="p-7 sm:p-9 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-[#F3EEF0] text-[#7E3F8F] flex items-center justify-center shrink-0">
-                <PhoneCall className="w-5 h-5" />
+                <Lock className="w-5 h-5" />
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-[#2D2A32] tracking-tight">
-                3. Registro de segurança (contato via WhatsApp)
+                3. Segurança dos dados
               </h2>
             </div>
             <p className="text-base sm:text-lg text-[#2D2A32]/90 leading-relaxed font-normal">
-              Por ser um serviço de prestação em domicílio, registramos o momento em que uma cliente
-              clica em "Chamar no WhatsApp" para uma prestadora (quem contatou quem, e quando) —
-              nada além disso; não registramos cliques, páginas visitadas ou navegação em geral.
-              Esse registro existe especificamente para proteger a segurança física das usuárias
-              (base legal do art. 7º da LGPD) e só é acessado pela administração do LinkDelas em
-              caso de necessidade real, por exemplo para atender uma solicitação das autoridades
-              policiais.
+              As senhas são armazenadas de forma criptografada e nunca ficam visíveis, nem mesmo
+              para a administração; as conversas (mensagens e orçamentos) são acessíveis somente às
+              duas pessoas envolvidas em cada solicitação; a administração acessa dados de cadastro
+              apenas para operar a plataforma (curadoria das prestadoras, moderação de avaliações e
+              suporte às usuárias).
             </p>
           </CardContent>
         </Card>
@@ -171,10 +158,9 @@ export default function Privacy() {
               </h2>
             </div>
             <p className="text-base sm:text-lg text-[#2D2A32]/90 leading-relaxed font-normal">
-              Seus dados são armazenados com o Supabase (provedor de banco de dados e autenticação)
-              e a Vercel (hospedagem do site), que atuam como operadores de dados sob nossas
-              instruções. Não vendemos nem compartilhamos seus dados com terceiros para fins de
-              marketing.
+              Seus dados são armazenados na Skip Cloud, que atua como operador de dados (hospedagem
+              da aplicação e do banco de dados) sob nossas instruções. Não vendemos nem
+              compartilhamos seus dados com terceiros para fins de marketing.
             </p>
           </CardContent>
         </Card>
@@ -239,8 +225,7 @@ export default function Privacy() {
             <p className="text-base sm:text-lg text-[#2D2A32]/90 leading-relaxed font-normal">
               Mantemos seus dados enquanto sua conta estiver ativa. Ao solicitar exclusão de conta,
               seus dados pessoais são removidos, exceto quando a lei exigir retenção por período
-              determinado (ex: obrigações fiscais sobre pagamentos já realizados, ou registros de
-              segurança necessários para atender uma investigação em andamento).
+              determinado.
             </p>
           </CardContent>
         </Card>

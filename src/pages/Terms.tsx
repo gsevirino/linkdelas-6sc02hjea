@@ -75,11 +75,11 @@ export default function Terms() {
               </h2>
             </div>
             <p className="text-base sm:text-lg text-[#2D2A32]/90 leading-relaxed font-normal">
-              Para usar recursos como avaliar profissionais, salvar favoritas ou anunciar serviços,
-              é necessário criar uma conta com nome, e-mail, CPF e senha (ou login via Google). O
-              CPF é coletado para reforçar a segurança e a confiança entre as clientes da
-              comunidade, e não é exibido publicamente. Você é responsável por manter suas
-              informações de cadastro atualizadas e verdadeiras, e por manter sua senha em sigilo.
+              Para usar recursos como avaliar profissionais ou anunciar serviços, é necessário criar
+              uma conta com nome, e-mail e senha. Prestadoras complementam o cadastro com categoria
+              de serviço, descrição, telefone de contato, cidade e foto de perfil. Você é
+              responsável por manter suas informações de cadastro atualizadas e verdadeiras, e por
+              manter sua senha em sigilo.
             </p>
           </CardContent>
         </Card>
@@ -96,13 +96,12 @@ export default function Terms() {
               </h2>
             </div>
             <p className="text-base sm:text-lg text-[#2D2A32]/90 leading-relaxed font-normal">
-              Prestadoras podem anunciar categorias de serviço mediante pagamento de uma mensalidade
-              por categoria (valor informado no momento da contratação), com um período de teste
-              gratuito. O pagamento é combinado diretamente com a administração do LinkDelas (via
-              WhatsApp/Pix) e confirmado manualmente — não há cobrança automática recorrente. Um
-              anúncio cuja mensalidade vence sem renovação deixa de aparecer nas buscas públicas até
-              que o pagamento seja regularizado, mas os dados cadastrados pela prestadora não são
-              apagados e podem ser reativados a qualquer momento mediante novo pagamento. A
+              Prestadoras podem anunciar serviços por meio dos planos Essencial (gratuito),
+              Profissional (R$ 49/mês) e Destaque (R$ 99/mês), contratados pela própria plataforma.
+              O pagamento é confirmado manualmente pela administração — não há cobrança automática
+              recorrente. Um anúncio com mensalidade vencida deixa de aparecer nas buscas públicas
+              até que o pagamento seja regularizado, mas os dados cadastrados pela prestadora não
+              são apagados e podem ser reativados a qualquer momento mediante novo pagamento. A
               administração pode pausar, suspender ou cancelar um anúncio em caso de descumprimento
               destes Termos.
             </p>
@@ -121,15 +120,11 @@ export default function Terms() {
               </h2>
             </div>
             <p className="text-base sm:text-lg text-[#2D2A32]/90 leading-relaxed font-normal">
-              O selo "Verificada" indica que a administração conferiu visualmente um documento
-              oficial com foto da prestadora (RG, CNH ou equivalente), comparando o nome e a foto
-              com os dados do cadastro. A conferência é feita por um canal externo à plataforma
-              (WhatsApp ou e-mail), informado pela própria prestadora de forma voluntária; o
-              documento não é armazenado, copiado ou mantido pelo LinkDelas em nenhuma hipótese —
-              apenas o resultado da conferência (se foi verificada, por quem e quando) fica
-              registrado no sistema. A prestadora pode solicitar a remoção do selo a qualquer
-              momento. O selo atesta apenas a identidade da prestadora e não constitui garantia de
-              qualidade, idoneidade ou resultado dos serviços prestados.
+              O selo "Verificada" indica que a administração analisou e aprovou o cadastro da
+              prestadora (dados informados, categoria, descrição e foto de perfil) antes de sua
+              publicação no catálogo. A prestadora pode solicitar a remoção do selo a qualquer
+              momento. O selo atesta apenas a aprovação do cadastro pela administração e não
+              constitui garantia de qualidade, idoneidade ou resultado dos serviços prestados.
             </p>
           </CardContent>
         </Card>
@@ -224,7 +219,14 @@ export default function Terms() {
               </h2>
             </div>
             <p className="text-base sm:text-lg text-[#2D2A32]/90 leading-relaxed font-normal">
-              Dúvidas sobre estes Termos podem ser enviadas para contato@linkdelas.com.br.
+              Dúvidas sobre estes Termos podem ser enviadas para{' '}
+              <a
+                href="mailto:contato@linkdelas.com.br"
+                className="text-[#7E3F8F] font-semibold underline hover:text-[#662F76] transition-colors"
+              >
+                contato@linkdelas.com.br
+              </a>
+              .
             </p>
           </CardContent>
         </Card>
