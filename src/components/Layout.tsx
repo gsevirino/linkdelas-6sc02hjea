@@ -96,6 +96,19 @@ export default function Layout() {
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-2">
             <NavLink
+              to="/sobre"
+              className={({ isActive }) =>
+                `px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  isActive
+                    ? 'text-[#7E3F8F] bg-[#F3EEF0]'
+                    : 'text-[#2D2A32] hover:text-[#7E3F8F] hover:bg-[#FAF7F5]'
+                }`
+              }
+            >
+              Sobre nós
+            </NavLink>
+
+            <NavLink
               to="/catalogo"
               className={({ isActive }) =>
                 `px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
@@ -284,6 +297,13 @@ export default function Layout() {
                 Início
               </Link>
               <Link
+                to="/sobre"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 text-sm font-medium rounded-lg text-[#2D2A32] hover:bg-[#FAF7F5]"
+              >
+                Sobre nós
+              </Link>
+              <Link
                 to="/catalogo"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 text-sm font-medium rounded-lg text-[#2D2A32] hover:bg-[#FAF7F5]"
@@ -454,7 +474,9 @@ export default function Layout() {
               </h4>
               <ul className="space-y-2 text-sm text-[#6E6A73]">
                 <li>
-                  <span className="cursor-default">Sobre nós</span>
+                  <Link to="/sobre" className="hover:text-[#7E3F8F] transition-colors">
+                    Sobre nós
+                  </Link>
                 </li>
                 <li>
                   <span className="cursor-default">Termos de Uso</span>
