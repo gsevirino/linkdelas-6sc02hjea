@@ -489,7 +489,12 @@ export default function Layout() {
                   </Link>
                 </li>
                 <li>
-                  <span className="cursor-default">contato@conexaofeminina.com</span>
+                  <a
+                    href="mailto:contato@linkdelas.com.br"
+                    className="hover:text-[#7E3F8F] transition-colors"
+                  >
+                    contato@linkdelas.com.br
+                  </a>
                 </li>
               </ul>
             </div>

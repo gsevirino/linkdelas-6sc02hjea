@@ -28,7 +28,7 @@ onRecordUpdate((e) => {
         const name = e.record.getString('name') || 'Prestadora'
         const message = new MailerMessage({
           from: {
-            address: $app.settings().meta.senderAddress || 'contato@conexaofeminina.com',
+            address: $app.settings().meta.senderAddress || 'contato@linkdelas.com.br',
             name: $app.settings().meta.senderName || 'LinkDelas',
           },
           to: [{ address: email, name: name }],

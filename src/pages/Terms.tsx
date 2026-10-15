@@ -55,10 +55,10 @@ export default function Terms() {
             </div>
             <p className="text-base sm:text-lg text-[#2D2A32]/90 leading-relaxed font-normal">
               O LinkDelas é uma plataforma online que conecta clientes a prestadoras de serviço
-              autônomo, operada por Gislaine Sevirino. O LinkDelas atua como um espaço de divulgação
-              e intermediação de contato — não somos parte na relação de prestação de serviço entre
-              cliente e prestadora, não empregamos as prestadoras cadastradas e não garantimos a
-              qualidade, pontualidade ou resultado dos serviços contratados por meio da plataforma.
+              autônomo. O LinkDelas atua como um espaço de divulgação e intermediação de contato —
+              não somos parte na relação de prestação de serviço entre cliente e prestadora, não
+              empregamos as prestadoras cadastradas e não garantimos a qualidade, pontualidade ou
+              resultado dos serviços contratados por meio da plataforma.
             </p>
           </CardContent>
         </Card>
