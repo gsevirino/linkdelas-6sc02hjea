@@ -484,7 +484,9 @@ export default function Layout() {
                   </Link>
                 </li>
                 <li>
-                  <span className="cursor-default">Privacidade & Dados</span>
+                  <Link to="/privacidade" className="hover:text-[#7E3F8F] transition-colors">
+                    Privacidade
+                  </Link>
                 </li>
                 <li>
                   <span className="cursor-default">contato@conexaofeminina.com</span>
