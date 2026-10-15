@@ -17,6 +17,7 @@ import VerifyEmail from './pages/VerifyEmail'
 import ConfirmEmailChange from './pages/ConfirmEmailChange'
 import Catalog from './pages/Catalog'
 import About from './pages/About'
+import Terms from './pages/Terms'
 import ProviderProfile from './pages/ProviderProfile'
 import Quotes from './pages/Quotes'
 import QuoteDetail from './pages/QuoteDetail'
@@ -60,6 +61,7 @@ const App = () => (
 
             {/* Public / Marketplace routes */}
             <Route path="/sobre" element={<About />} />
+            <Route path="/termos" element={<Terms />} />
             <Route path="/catalogo" element={<Catalog />} />
             <Route path="/prestadoras/:id" element={<ProviderProfile />} />
 

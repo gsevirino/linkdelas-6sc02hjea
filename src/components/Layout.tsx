@@ -479,7 +479,9 @@ export default function Layout() {
                   </Link>
                 </li>
                 <li>
-                  <span className="cursor-default">Termos de Uso</span>
+                  <Link to="/termos" className="hover:text-[#7E3F8F] transition-colors">
+                    Termos de Uso
+                  </Link>
                 </li>
                 <li>
                   <span className="cursor-default">Privacidade & Dados</span>
